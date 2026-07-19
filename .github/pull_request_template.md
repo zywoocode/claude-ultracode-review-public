@@ -8,7 +8,7 @@
 
 ## 三方审查清单
 
-- [ ] Claude Code review 完成，无未解决的阻塞性意见
+- [ ] Claude 深度审查完成（code-review 多智能体交叉验证；按需追加 security-review / deep-research 科研核查），无未解决的阻塞性意见
 - [ ] Codex review 完成（`@codex review`），无未解决的阻塞性意见
-- [ ] GPT 桌面端模型审查完成，结论已贴为 PR 评论
+- [ ] GPT-5.6 Pro 审查完成，结论已贴为 PR 评论
 - [ ] 计划中的验收标准全部通过
