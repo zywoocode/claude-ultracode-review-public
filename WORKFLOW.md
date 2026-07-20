@@ -55,11 +55,19 @@
 ## 目录约定
 
 ```
-plans/           # 计划文件，NNN 递增编号，一任务一文件
+plans/           # 进行中的计划文件，NNN 递增编号，一任务一文件
   TEMPLATE.md    # 计划模板
+archive/YYYY-MM/ # 每月归档：该月完成的计划 + SUMMARY.md（合并的 PR、三方审查结论要点）
 WORKFLOW.md      # 本文件
 .github/pull_request_template.md   # PR 三方审查清单
 ```
+
+## 每月归档约定
+
+每月 1 日（定时任务自动执行，也可随时手动触发）：
+1. 把 `plans/` 中状态为「完成」的计划移入 `archive/YYYY-MM/`（上一个自然月）；
+2. 汇总该月合并的 PR 与三方审查结论要点，写入 `archive/YYYY-MM/SUMMARY.md`；
+3. 提交并推送到 `main`。该月无可归档内容则跳过，不产生空提交。
 
 ## 一次性准备事项（由用户完成）
 
