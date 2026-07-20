@@ -44,6 +44,13 @@
 - **Codex**：PR 上评论 `@codex review`（需先安装 Codex GitHub App 并对本仓库授权）。
 - **GPT-5.6 Pro**：用户在桌面 app 中让 GPT-5.6 Pro 审查 PR diff，将结论以 PR 评论形式贴回。
 
+> **审查请求通路（重要澄清）**：ChatGPT 与 Claude 之间**没有、也不需要**任何 AI 直连。三方审查（含 Codex）的信道都是 **GitHub PR**：
+> - ChatGPT 开 PR / 推送提交 = 向三方审查「发起请求」；无论内容是代码、科研项目还是文章文稿，只要提交进仓库成为 PR diff 即可被审。
+> - Claude 读 PR 改动 → 用深度审查组合技能（peer-review、statistical-analysis、code-review 等）出意见 → 写成 PR 评论 = Claude 的「审查回复」。
+> - ChatGPT 通过 GitHub 连接器读回 PR 上的评论，据此修改。
+> - 不要用 ChatGPT 的电脑操作功能去遥控 Claude 窗口——脆弱且无必要，一切经 PR 交接。
+> - **Claude 自动响应**：由用户对 Claude 说「盯 PR #N」后，Claude 用 `subscribe_pr_activity` 订阅该 PR；此后该 PR 的新提交/评论会自动唤醒 Claude 会话并触发审查，无需每次手动叫。
+
 ### 4. 修复
 - 执行方（或 Claude）根据三方审查意见修复，直至三方均无阻塞性意见。
 
