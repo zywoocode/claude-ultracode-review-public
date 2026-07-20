@@ -1,22 +1,29 @@
 # 已安装的第三方 Skills
 
-以下 skills 于 2026-07 经多智能体搜索 + 安全审查（无危险命令、无注入指令、外部地址均为知名学术服务）后从 GitHub 引入，仓库内所有会话自动加载。
+本目录的 skills 于 2026-07 经多智能体搜索 + 全库安全扫描（无危险命令、无注入指令、外部地址均为公开学术/数据库服务）后从 GitHub 引入，仓库内所有会话自动加载。
 
-## 科研类
+## 组成
 
-| Skill | 用途 | 来源 | 许可证 |
-|-------|------|------|--------|
-| scientific-writing | 科研论文写作（IMRAD 结构、CONSORT/STROBE/PRISMA 报告规范、多种引用格式） | [K-Dense-AI/claude-scientific-writer](https://github.com/K-Dense-AI/claude-scientific-writer) | MIT |
-| literature-review | 系统性文献综述（PubMed、arXiv、Semantic Scholar 等多库检索 + 引用核验） | 同上 | MIT |
-| citation-management | 引用管理（元数据提取、DOI→BibTeX、引用校验） | 同上 | MIT |
-| peer-review | 同行评审工具箱（方法学、统计、可复现性、伦理、图表完整性）——深度审查科研内容时使用 | 同上 | MIT |
-| statistical-analysis | 统计分析向导（检验选择、假设检查、效应量、功效分析、APA 报告） | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills) | MIT |
-| scientific-visualization | 期刊级图表（多面板、显著性标注、色盲安全配色、Nature/Science/Cell 格式） | 同上 | MIT |
+- **K-Dense 科研全库（149 个）**：来自 [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills)，覆盖生物信息、单细胞、化学/药物发现、量子计算、统计、机器学习、科研写作/审稿/绘图、临床与实验室集成等。仓库级许可证为 MIT（见 `KDENSE-LICENSE.md`）。
+- **省 token（1 个）**：`token-coach`，来自 [alexgreensh/token-optimizer](https://github.com/alexgreensh/token-optimizer)，PolyForm Noncommercial 1.0.0（仅限非商业用途）。
 
-## 省 Token 类
+## 分类速览（K-Dense）
 
-| Skill | 用途 | 来源 | 许可证 |
-|-------|------|------|--------|
-| token-coach | 上下文用量教练：分析会话开销与习惯，给出省 token 的配置与工作方式建议 | [alexgreensh/token-optimizer](https://github.com/alexgreensh/token-optimizer) | PolyForm Noncommercial 1.0.0（仅限非商业用途） |
+- **科研写作 / 审稿 / 表达**：scientific-writing、literature-review、citation-management、peer-review、research-lookup、research-grants、scholar-evaluation、scientific-critical-thinking、venue-templates、markdown-mermaid-writing、scientific-slides、latex-posters、pptx-posters、infographics、scientific-schematics、scientific-visualization、generate-image、market-research-reports
+- **统计 / 实验设计**：statistical-analysis、statistical-power、experimental-design、statsmodels、pymc、shap、exploratory-data-analysis
+- **机器学习 / 深度学习**：scikit-learn、pytorch-lightning、transformers、torch-geometric、torchdrug、stable-baselines3、pufferlib、aeon、timesfm-forecasting、hugging-science、optimize-for-gpu、arbor
+- **生物信息 / 组学**：biopython、bioservices、gget、scanpy、anndata、scvi-tools、scvelo、cellxgene-census、pysam、pydeseq2、bulk-rnaseq、deeptools、nextflow、phylogenetics、etetoolkit、scikit-bio、pathway-enrichment、arboreto、geniml、gtars、polars-bio、tiledbvcf、bids
+- **化学 / 药物发现 / 材料**：rdkit、datamol、molfeat、medchem、deepchem、diffdock、pytdc、pyopenms、matchms、molecular-dynamics、pymatgen、glycoengineering、esm
+- **量子 / 物理 / 仿真**：qiskit、cirq、pennylane、qutip、fluidsim、simpy
+- **临床 / 医疗 / 影像**：clinical-reports、clinical-decision-support、treatment-plans、pyhealth、pydicom、imaging-data-commons、histolab、pathml、neurokit2、neuropixels-analysis、depmap、primekg
+- **数据处理 / 数值 / 可视化**：polars、dask、vaex、zarr-python、networkx、sympy、matlab、matplotlib、seaborn、umap-learn、geopandas、geomaster、astropy
+- **平台 / 实验室集成**：benchling-integration、dnanexus-integration、latchbio-integration、labarchive-integration、opentrons-integration、protocolsio-integration、omero-integration、ginkgo-cloud-lab、pylabrobot、lamindb、modal、adaptyv、rowan、tamarind
+- **文档 / 检索工具**：docx、pdf、pptx、xlsx、markitdown、liteparse、paper-lookup、exa-search、parallel-web、database-lookup、bgpt-paper-search、pyzotero
+- **其他**：get-available-resources、hypothesis-generation、hypogenic、scientific-brainstorming、consciousness-council、what-if-oracle 等
 
-各 skill 目录内保留了原仓库的 LICENSE 文件。需要更多领域专用 skill（如化学 RDKit、生信、药物发现）时，可从 K-Dense scientific-agent-skills（148 个）按需追加。
+## 注意事项
+
+- 许可证：部分 skill 的 `license:` 字段（BSD/Apache/GPL/Proprietary）指其封装的**上游工具**（如 docx/pdf/rowan 及若干 GPL 库）的许可，非 skill 文档本身；商业用途前按需核对具体 skill。
+- `autoskill`：需本地 screenpipe 录屏守护进程 + API key 才运行，无守护进程时惰性拒绝，装入仓库不产生任何动作；如不需要可直接删除该目录。
+- 多个 skill 的脚本会联网访问公开数据库（PubMed、arXiv、UniProt、ChEMBL 等）——在云端容器可能被网络策略拦截，在本机运行正常。
+- **Token 开销**：全量 149 个 skill 的名称与描述常驻每个会话上下文（约一两万 token 固定开销）。若想瘦身，删除对应 `.claude/skills/<name>/` 目录即可，随删随生效。
