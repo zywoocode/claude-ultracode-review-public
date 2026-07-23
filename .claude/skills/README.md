@@ -24,7 +24,26 @@
 
 结果：150 → 131 个，描述常驻开销约 16.5k → 13.2k token/会话（累计省约 3.4k）。
 
-**仍待定**：领域专用 skill（基因组学/化学/量子/天文等）改「按需加载」分层——需要把它们移到按项目启用的目录，收益最大但改动结构，等用户决定。
+## 2026-07 审计清理（第三批：分层加载，最大节省）
+
+**机制选择说明**：Claude Code 只扫描 `.claude/skills/` 一层；skill 的描述会常驻每会话上下文（skill 越多、固定 token 越高）。原本想用 `skillOverrides` 设置开关，但经文档核查确认它在**提交版** `.claude/settings.json` 里无效（[bug #50631]，只有 gitignored 的 `settings.local.json` 生效、不能跨设备同步）。故改用**唯一可靠且能跨设备同步**的办法：**把领域专用 skill 移出 `.claude/skills/`**。
+
+分两层，**文件全部保留**（在 git 里）：
+
+- **常驻核心（35 个，留在 `.claude/skills/`）**：通用写作/统计/绘图/数据/文献/审查类——docx、pptx、xlsx、markitdown、liteparse、exploratory-data-analysis、polars、dask、networkx、sympy、matplotlib、seaborn、scientific-visualization、scikit-learn、statsmodels、statistical-analysis、statistical-power、experimental-design、shap、scientific-writing、peer-review、literature-review、paper-lookup、citation-management、research-lookup、research-grants、scholar-evaluation、scientific-brainstorming、scientific-critical-thinking、markdown-mermaid-writing、scientific-slides、get-available-resources、hypothesis-generation、database-lookup、exa-search。
+- **按需库（96 个，移到仓库根 `skills-library/`）**：基因组学/单细胞/化学药物/量子物理/天文/RL/临床影像/实验室平台等。该目录**不被 Claude Code 扫描 = 零 token**，但文件都在，随时可移回启用。
+
+**效果**：每会话描述开销从 ~16,561 → **~3,685 token（省约 78%）**。
+
+### 如何按需激活某个领域 skill
+
+进入某领域任务时，把它从 `skills-library/` 移回 `.claude/skills/` 即可（即时生效）：
+```bash
+git mv skills-library/scanpy .claude/skills/scanpy   # 例：启用单细胞分析
+```
+用完想收起来就反向 `git mv` 回 `skills-library/`。激活/收起都提交进 git，两端同步。Claude 在本工作区会**主动**：识别到任务需要某个库中 skill 时，提示或直接 `git mv` 启用它。
+
+> 提示：本用户做放射组学/医学影像研究，可考虑把 `pydicom`、`imaging-data-commons`、`clinical-reports`、`histolab`、`pathml`、`pyhealth`、`nextflow`、`scanpy` 等常用的长期移回核心。
 
 ## 分类速览（K-Dense）
 
