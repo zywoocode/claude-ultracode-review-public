@@ -1,6 +1,6 @@
 ---
 name: docx
-description: "Use this skill whenever the user wants to create, read, edit, or manipulate Word documents (.docx files). Triggers include: any mention of 'Word doc', 'word document', '.docx', or requests to produce professional documents with formatting like tables of contents, headings, page numbers, or letterheads. Also use when extracting or reorganizing content from .docx files, inserting or replacing images in documents, performing find-and-replace in Word files, working with tracked changes or comments, or converting content into a polished Word document. If the user asks for a 'report', 'memo', 'letter', 'template', or similar deliverable as a Word or .docx file, use this skill. Do NOT use for PDFs, spreadsheets, Google Docs, or general coding tasks unrelated to document generation."
+description: "Use this skill whenever the user wants to create, read, edit, or manipulate Word documents (.docx files), including producing professional deliverables like reports, memos, letters, or templates. Do NOT use for PDFs, spreadsheets, Google Docs, or general coding tasks unrelated to document generation."
 license: Proprietary. LICENSE.txt has complete terms
 metadata: {"version": "1.0"}
 ---
@@ -10,6 +10,8 @@ metadata: {"version": "1.0"}
 ## Overview
 
 A .docx file is a ZIP archive containing XML files.
+
+Use this skill for any task involving Word documents (.docx) or Word templates (.dotx): mentions of 'Word doc', 'word document', '.docx', or '.dotx'; producing professional documents with formatting like tables of contents, headings, page numbers, or letterheads; extracting or reorganizing content from .docx/.dotx files; inserting or replacing images; find-and-replace in Word files; working with tracked changes or comments; or converting content into a polished Word document. Deliverables such as a 'report', 'memo', 'letter', or 'template' requested as a Word or .docx file also belong here.
 
 ## Quick Reference
 

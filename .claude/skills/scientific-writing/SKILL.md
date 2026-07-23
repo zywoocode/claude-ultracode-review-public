@@ -33,22 +33,22 @@ This skill should be used when:
 
 ## Visual Enhancement with Scientific Schematics
 
-**⚠️ MANDATORY: Every scientific paper MUST include a graphical abstract plus 1-2 additional AI-generated figures using the scientific-schematics skill.**
+**Add figures where they aid understanding.** The scientific-schematics skill can generate a graphical abstract and supporting AI-generated figures when they help communicate the work.
 
-This is not optional. Scientific papers without visual elements are incomplete. Before finalizing any document:
-1. **ALWAYS generate a graphical abstract** as the first visual element
-2. Generate at minimum ONE additional schematic or diagram using scientific-schematics
-3. Prefer 3-4 total figures for comprehensive papers (graphical abstract + methods flowchart + results visualization + conceptual diagram)
+Visual elements often strengthen a paper. When finalizing a document, consider:
+1. Generating a graphical abstract when a visual summary aids understanding
+2. Adding schematics or diagrams (via scientific-schematics) where they clarify concepts, methods, or results
+3. Including additional figures wherever they genuinely improve comprehension—guided by the content, not a fixed count
 
-### Graphical Abstract (REQUIRED)
+### Graphical Abstract
 
-**Every scientific writeup MUST include a graphical abstract.** This is a visual summary of your paper that:
+**A graphical abstract can be a valuable visual summary** where it aids understanding. This is a visual summary of your paper that:
 - Appears before or immediately after the text abstract
 - Captures the entire paper's key message in one image
 - Is suitable for journal table of contents display
 - Uses landscape orientation (typically 1200x600px)
 
-**Generate the graphical abstract FIRST:**
+**To generate a graphical abstract:**
 ```bash
 python scripts/generate_schematic.py "Graphical abstract for [paper title]: [brief description showing workflow from input → methods → key findings → conclusions]" -o figures/graphical_abstract.png
 ```
@@ -60,25 +60,23 @@ python scripts/generate_schematic.py "Graphical abstract for [paper title]: [bri
 - **Text**: Minimal labels, large readable fonts
 - Log: `[HH:MM:SS] GENERATED: Graphical abstract for paper summary`
 
-### Additional Figures (GENERATE EXTENSIVELY)
+### Additional Figures (add where they aid understanding)
 
-**⚠️ CRITICAL: Use BOTH scientific-schematics AND generate-image EXTENSIVELY throughout all documents.**
+**Both scientific-schematics and generate-image are available to illustrate documents where visuals help.**
 
-Every document should be richly illustrated. Generate figures liberally - when in doubt, add a visual.
+Add figures where they aid understanding rather than to meet a fixed quota. Different document types typically benefit from visuals in different ways:
 
-**MINIMUM Figure Requirements:**
+| Document Type | Typical use of figures |
+|--------------|------------------------|
+| Research Papers | Key methods, results, and concepts where a visual clarifies |
+| Literature Reviews | Frameworks, timelines, and comparison diagrams |
+| Market Research | Data visualizations for the main findings |
+| Presentations | Visuals that support each point |
+| Posters | Visuals that carry the main narrative |
+| Grants | Concept and workflow diagrams |
+| Clinical Reports | Diagrams that clarify design or findings |
 
-| Document Type | Minimum | Recommended |
-|--------------|---------|-------------|
-| Research Papers | 5 | 6-8 |
-| Literature Reviews | 4 | 5-7 |
-| Market Research | 20 | 25-30 |
-| Presentations | 1/slide | 1-2/slide |
-| Posters | 6 | 8-10 |
-| Grants | 4 | 5-7 |
-| Clinical Reports | 3 | 4-6 |
-
-**Use scientific-schematics EXTENSIVELY for technical diagrams:**
+**Use scientific-schematics for technical diagrams:**
 ```bash
 python scripts/generate_schematic.py "your diagram description" -o figures/output.png
 ```
@@ -94,7 +92,7 @@ python scripts/generate_schematic.py "your diagram description" -o figures/outpu
 - Comparison matrices, timeline diagrams
 - Any technical concept that benefits from schematic visualization
 
-**Use generate-image EXTENSIVELY for visual content:**
+**Use generate-image for visual content where it helps:**
 ```bash
 python scripts/generate_image.py "your image description" -o figures/output.png
 ```

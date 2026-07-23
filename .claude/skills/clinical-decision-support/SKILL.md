@@ -103,10 +103,10 @@ Use this skill when you need to:
 
 ## Visual Enhancement with Scientific Schematics
 
-**⚠️ MANDATORY: Every clinical decision support document MUST include at least 1-2 AI-generated figures using the scientific-schematics skill.**
+**Recommended: Every clinical decision support document should ideally include 1-2 AI-generated figures using the scientific-schematics skill.**
 
-This is not optional. Clinical decision documents require clear visual algorithms. Before finalizing any document:
-1. Generate at minimum ONE schematic or diagram (e.g., clinical decision algorithm, treatment pathway, or biomarker stratification tree)
+Clinical decision documents benefit from clear visual algorithms. Before finalizing any document, consider:
+1. Generating at least ONE schematic or diagram (e.g., clinical decision algorithm, treatment pathway, or biomarker stratification tree)
 2. For cohort analyses: include patient flow diagram
 3. For treatment recommendations: include decision flowchart
 
@@ -141,7 +141,7 @@ For detailed guidance on creating schematics, refer to the scientific-schematics
 
 ## Document Structure
 
-**CRITICAL REQUIREMENT: All clinical decision support documents MUST begin with a complete executive summary on page 1 that spans the entire first page before any table of contents or detailed sections.**
+**Recommended: Clinical decision support documents should generally begin with a complete executive summary on page 1 that spans the entire first page before any table of contents or detailed sections.**
 
 ### Page 1 Executive Summary Structure
 
@@ -261,7 +261,7 @@ The first page of every CDS document should contain ONLY the executive summary w
 
 ## Output Format
 
-**MANDATORY FIRST PAGE REQUIREMENT:**
+**Recommended First Page Structure:**
 - **Page 1**: Full-page executive summary with 3-5 colored tcolorbox elements
 - **Page 2**: Table of contents (optional)
 - **Page 3+**: Detailed sections with methods, results, figures, tables
@@ -454,8 +454,8 @@ This skill integrates with:
 
 ### General Best Practices
 
-1. **First Page Executive Summary (MANDATORY)**: 
-   - ALWAYS create a complete executive summary on page 1 that spans the entire first page
+1. **First Page Executive Summary (recommended)**: 
+   - Create a complete executive summary on page 1 that spans the entire first page where possible
    - Use 3-5 colored tcolorbox elements to highlight key findings
    - No table of contents or detailed sections on page 1
    - Use `\thispagestyle{empty}` and end with `\newpage`
@@ -497,13 +497,9 @@ See the `assets/` directory for LaTeX templates:
 
 See the `scripts/` directory for analysis and visualization tools:
 - `generate_survival_analysis.py` - Kaplan-Meier curve generation with log-rank tests, hazard ratios, 95% CI
-- `create_waterfall_plot.py` - Best response visualization for cohort analyses
-- `create_forest_plot.py` - Subgroup analysis visualization with confidence intervals
 - `create_cohort_tables.py` - Demographics, biomarker frequency, and outcomes tables
 - `build_decision_tree.py` - TikZ flowchart generation for treatment algorithms
 - `biomarker_classifier.py` - Patient stratification algorithms by molecular subtype
-- `calculate_statistics.py` - Hazard ratios, Cox regression, log-rank tests, Fisher's exact
 - `validate_cds_document.py` - Quality and compliance checks (HIPAA, statistical reporting standards)
-- `grade_evidence.py` - Automated GRADE assessment helper for treatment recommendations
 
 

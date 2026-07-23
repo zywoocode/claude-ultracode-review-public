@@ -13,7 +13,7 @@ metadata: {"version": "1.2", "skill-author": "K-Dense Inc.", "openclaw": {"prima
 
 Conduct systematic, comprehensive literature reviews following rigorous academic methodology. Search multiple literature databases, synthesize findings thematically, verify all citations for accuracy, and generate professional output documents in markdown and PDF formats.
 
-This skill uses the **parallel-web skill** (`parallel-cli search`) as the primary web search tool for broad academic literature discovery, supplemented by specialized database access skills (gget, bioservices, datacommons-client). It provides specialized tools for citation verification, result aggregation, and document generation.
+This skill uses the **parallel-web skill** (`parallel-cli search`) as the primary web search tool for broad academic literature discovery, supplemented by specialized database access skills (gget, bioservices, database-lookup). It provides specialized tools for citation verification, result aggregation, and document generation.
 
 ## When to Use This Skill
 
@@ -130,7 +130,7 @@ Literature reviews follow a structured, multi-phase workflow:
    **Specialized Databases:**
    - Use `gget alphafold` for protein structures
    - Use `gget cosmic` for cancer genomics
-   - Use `datacommons-client` for demographic/statistical data
+   - Use `database-lookup` for demographic/statistical data
    - Use specialized databases as appropriate for the domain
 
 2. **Document Search Parameters**:
@@ -602,7 +602,7 @@ This skill works seamlessly with other scientific skills:
 ### Database Access Skills
 - **gget**: PubMed, bioRxiv, COSMIC, AlphaFold, Ensembl, UniProt
 - **bioservices**: ChEMBL, KEGG, Reactome, UniProt, PubChem
-- **datacommons-client**: Demographics, economics, health statistics
+- **database-lookup**: Demographics, economics, health statistics
 
 ### Analysis Skills
 - **pydeseq2**: RNA-seq differential expression (for methods sections)
@@ -699,7 +699,7 @@ This literature-review skill provides:
 
 1. **Systematic methodology** following academic best practices
 2. **Parallel-web powered search** using `parallel-cli search` for fast, broad academic literature discovery with scholarly domain filtering
-3. **Multi-database integration** via existing scientific skills (gget, bioservices, datacommons-client)
+3. **Multi-database integration** via existing scientific skills (gget, bioservices, database-lookup)
 4. **Citation verification** ensuring accuracy and credibility
 5. **Professional output** in markdown and PDF formats
 6. **Comprehensive guidance** covering the entire review process

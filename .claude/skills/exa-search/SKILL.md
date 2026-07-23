@@ -1,6 +1,6 @@
 ---
 name: exa-search
-description: "Web toolkit powered by Exa, tuned for scientific and technical content. Use this skill when the user needs to search the web or fetch/extract URL content. Covers: web search (semantic lookups, research, current info — with optional research-paper category and academic domain filtering) and URL extraction (fetching pages, articles, academic PDFs in batch). Use this skill for web-related tasks when the user wants high-quality search or scholarly filtering via category=research paper. Triggers on requests to search, look up, fetch a page, or extract an article."
+description: "Exa-powered scholarly search: research-paper-category web search with academic domain filtering, plus batch extraction of academic PDFs and article full-text. Use when the user wants papers filtered by category=research paper or needs many academic URLs/PDFs extracted at once — not for general web search, which built-in WebSearch/WebFetch handle."
 compatibility: Requires exa-py Python SDK, an EXA_API_KEY, and internet access.
 license: MIT
 required_environment_variables: [{"name": "EXA_API_KEY", "prompt": "Exa search API key.", "required_for": "full functionality"}]

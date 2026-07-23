@@ -1,6 +1,6 @@
 ---
 name: arbor
-description: Autonomously improve a real artifact (code, training recipe, agent harness, data pipeline, prompt) against an objective and an evaluator, using Hypothesis Tree Refinement (HTR) from the Arbor paper. Use this whenever someone wants to iteratively optimize something over many experiments without overfitting — e.g. "get my model's eval score up", "improve this agent/harness", "tune this pipeline", "beat the baseline on this benchmark", "run a search over approaches and keep the best", "do an MLE-bench / Kaggle-style optimization", or any long-horizon "make this artifact better and don't just memorize the dev set" task. Trigger it even when the user doesn't say "Arbor" or "hypothesis tree" but describes repeated experiment-and-evaluate loops, branching exploration of competing ideas, or worries about a dev/test gap. Runs Claude itself as the coordinator with subagent executors in isolated git worktrees; for the standalone `arbor` CLI tool see references/arbor-upstream.md.
+description: Autonomously improve a real artifact (code, training recipe, agent harness, data pipeline, prompt) against an objective and an evaluator, using Hypothesis Tree Refinement (HTR) from the Arbor paper. Use for long-horizon experiment-and-evaluate loops that must not overfit the dev set — e.g. "get my model's eval score up", "improve this agent/harness", or "beat the baseline on this benchmark".
 allowed-tools: Read Write Edit Bash Agent
 license: MIT license
 metadata: {"version": "1.0", "skill-author": "K-Dense Inc."}
@@ -26,6 +26,14 @@ Reach for Arbor when the task is **iterative improvement of a concrete artifact 
 - Prompt/system optimization where you can score outputs automatically.
 
 The distinguishing signals: there's an **artifact you can modify**, an **objective**, a way to **score** candidates, and you expect to run **many experiments**. If the user only wants a single fix or a one-shot answer, this is overkill — just do the work directly. If they want open-ended ideation with no evaluator, use `hypothesis-generation` or `scientific-brainstorming` instead.
+
+Trigger this skill even when the user never says "Arbor" or "hypothesis tree" but describes repeated experiment-and-evaluate loops, branching exploration of competing ideas, or worries about a dev/test gap. Representative phrasings that should route here:
+- "get my model's eval score up", "improve this agent/harness", "tune this pipeline"
+- "beat the baseline on this benchmark", "run a search over approaches and keep the best"
+- "do an MLE-bench / Kaggle-style optimization"
+- any long-horizon "make this artifact better and don't just memorize the dev set" task
+
+This skill runs Claude itself as the coordinator with subagent executors in isolated git worktrees. For the standalone `arbor` CLI tool, see `references/arbor-upstream.md`.
 
 ## The AO setup — pin this down first
 

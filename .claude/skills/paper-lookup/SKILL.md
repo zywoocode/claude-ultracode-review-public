@@ -1,6 +1,6 @@
 ---
 name: paper-lookup
-description: Search 10 academic literature APIs for papers, preprints, citations, and open-access full text, and return results with reproducible provenance. Covers PubMed, PMC (full text), bioRxiv, medRxiv, arXiv, OpenAlex, Crossref, Semantic Scholar, CORE, Unpaywall. Use when searching for papers, citations, DOI/PMID/arXiv lookups, abstracts, full text, open-access PDFs, preprints, citation graphs, author publications, or any scholarly literature query. Triggers on mentions of any supported database or requests like "find papers on X", "look up this DOI", "who cites this paper", or "get me the PDF".
+description: Search multiple academic literature APIs for papers, preprints, citations, and open-access full text across ten scholarly databases, returning results with reproducible provenance. Use when searching for papers, DOI/PMID/arXiv lookups, abstracts, full text, open-access PDFs, preprints, citation graphs, or author publications, or on requests like "find papers on X", "look up this DOI", "who cites this paper", or "get me the PDF".
 allowed-tools: Read Bash
 license: MIT
 metadata:

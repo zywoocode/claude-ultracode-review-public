@@ -1,6 +1,6 @@
 ---
 name: markdown-mermaid-writing
-description: Comprehensive markdown and Mermaid diagram writing skill. Use when creating any scientific document, report, analysis, or visualization. Establishes text-based diagrams as the default documentation standard with full style guides (markdown + mermaid), 24 diagram type references, and 9 document templates.
+description: Writing markdown and Mermaid diagrams. Use when creating a Mermaid diagram or authoring a markdown document with embedded diagrams, with full style guides (markdown + mermaid), 24 diagram type references, and 9 document templates.
 allowed-tools: Read Write Edit Bash
 license: Apache-2.0
 metadata: {"version": "1.1", "skill-author": "Clayton Young / Superior Byte Works, LLC (@borealBytes)", "skill-source": "https://github.com/SuperiorByteWorks-LLC/agent-project", "skill-version": "1.0.0", "skill-contributors": "Clayton Young (Superior Byte Works, LLC / @borealBytes; Author and originator); K-Dense Team (K-Dense Inc.; Integration target and community feedback)"}
@@ -35,7 +35,6 @@ Use this skill when:
 - Writing **any documentation** — READMEs, how-tos, decision records, project docs
 - Producing **any diagram** — workflows, data pipelines, architectures, timelines, relationships
 - Generating **any output that will be version-controlled** — if it's going into git, it should be markdown
-- Working with **any other skill** — this skill defines the documentation layer that wraps every other output
 - Someone asks you to "add a diagram" or "visualize the relationship" — Mermaid first, always
 
 Do NOT start with Python matplotlib, seaborn, or AI image generation for structural or relational diagrams.

@@ -1,6 +1,6 @@
 ---
 name: bulk-rnaseq
-description: End-to-end bulk RNA-seq orchestrator — takes raw FASTQ reads through QC and trimming (FastQC, fastp/Trim Galore), alignment and quantification (STAR, Salmon, featureCounts), assembles a gene-level counts matrix, then hands off to differential expression (pydeseq2), pathway/GSEA enrichment (pathway-enrichment), and publication figures (scientific-visualization). Use whenever the user has bulk RNA-seq reads or quant output and wants a complete, reproducible differential-expression workflow — e.g. "analyze my RNA-seq", "FASTQ to DESeq2", "run nf-core/rnaseq", "STAR/Salmon quantification", "build a counts matrix for DESeq2", or "go from reads to differentially expressed genes and enriched pathways". Routes between an nf-core/rnaseq (Nextflow) path and a standalone STAR/Salmon path, and covers experimental design, strandedness, and QC gates. For single-cell RNA-seq use the scanpy skill instead.
+description: End-to-end bulk RNA-seq orchestration that takes raw FASTQ reads through QC, alignment, and quantification into a gene-level counts matrix, then hands off to differential expression (DESeq2), pathway enrichment, and publication figures. Use whenever the user has bulk RNA-seq reads or quant output and wants a complete, reproducible FASTQ-to-DESeq2 differential-expression workflow; for single-cell RNA-seq use the scanpy skill instead.
 license: MIT
 metadata: {"version": "1.0", "skill-author": "K-Dense Inc."}
 ---
@@ -26,6 +26,10 @@ Use this skill when the user wants to:
 - Turn Salmon/STAR/featureCounts output into a counts matrix ready for DESeq2/PyDESeq2.
 - Design or sanity-check a bulk RNA-seq experiment (replicates, batch, strandedness) before committing compute.
 - Scope an end-to-end RNA-seq analysis and decide which tools and skills to chain.
+
+Typical prompts: "analyze my RNA-seq", "FASTQ to DESeq2", "run nf-core/rnaseq", "STAR/Salmon quantification", "build a counts matrix for DESeq2", or "go from reads to differentially expressed genes and enriched pathways".
+
+The stages and the tools/skills they use: QC and trimming (FastQC, fastp/Trim Galore), alignment and quantification (STAR, Salmon, featureCounts), then handoff to differential expression (`pydeseq2`), pathway/GSEA enrichment (`pathway-enrichment`), and publication figures (`scientific-visualization`). The reads → counts stage routes between an nf-core/rnaseq (Nextflow) path and a standalone STAR/Salmon path, and the skill covers experimental design, strandedness, and QC gates throughout.
 
 This is **bulk** RNA-seq (samples = biological specimens). For single-cell/nuclei data use `scanpy`; for the DE statistics alone use `pydeseq2`; for enrichment alone use `pathway-enrichment`.
 

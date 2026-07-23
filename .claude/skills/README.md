@@ -4,8 +4,19 @@
 
 ## 组成
 
-- **K-Dense 科研全库（149 个）**：来自 [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills)，覆盖生物信息、单细胞、化学/药物发现、量子计算、统计、机器学习、科研写作/审稿/绘图、临床与实验室集成等。仓库级许可证为 MIT（见 `KDENSE-LICENSE.md`）。
-- **省 token（1 个）**：`token-coach`，来自 [alexgreensh/token-optimizer](https://github.com/alexgreensh/token-optimizer)，PolyForm Noncommercial 1.0.0（仅限非商业用途）。
+- **K-Dense 科研库**：来自 [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills)，覆盖生物信息、单细胞、化学/药物发现、量子计算、统计、机器学习、科研写作/审稿/绘图、临床与实验室集成等。仓库级许可证为 MIT（见 `KDENSE-LICENSE.md`）。
+
+## 2026-07 审计清理（第一批：安全修复）
+
+经多智能体审计后做的无损清理（全部可 git 还原）：
+
+- **删除 6 个**：`token-coach`（依赖未安装的主插件，一运行即报错失效）、`pdf`（与内置同名重复）、`primekg`（硬编码他人电脑路径，必崩）、`dhdna-profiler`（伪科学「认知 DNA」画像 + 隐私风险）、`what-if-oracle`（数字命理当事实）、`autoskill`（读屏守护进程，多数会话失效 + 隐私）。
+- **安全修复**：`imaging-data-commons` 原会静默执行 `pip install --break-system-packages` 改环境，已改为仅打印升级提示。
+- **删复制粘贴样板**：`markitdown`/`peer-review`/`citation-management`/`scholar-evaluation`/`venue-templates` 里逐字复制的 `generate_schematic*.py`（hash 相同）及相关段落已删（真正的 `scientific-schematics` 不受影响）。
+- **精简超长描述 / 收窄误触发**：`experimental-design`、`pathway-enrichment`、`arbor`、`statistical-power`、`bulk-rnaseq`、`pyhealth`、`tamarind`、`paper-lookup`、`markdown-mermaid-writing`、`get-available-resources`、`exa-search`、`optimize-for-gpu` 等的描述已收紧。
+- **修坏引用**：`clinical-decision-support`（删不存在的脚本引用）、`literature-review`（未安装的 sibling 改为 `database-lookup`）；`scientific-writing` 的「每篇必须≥20 图」硬配额改为建议。
+
+结果：150 → 144 个，描述常驻开销约 16.5k → 14.5k token/会话。**待定的更大精简**（合并 11 个文献检索/9 个绘图重叠、砍无账号的付费平台集成、领域 skill 改按需加载）需用户确认后再做。
 
 ## 分类速览（K-Dense）
 

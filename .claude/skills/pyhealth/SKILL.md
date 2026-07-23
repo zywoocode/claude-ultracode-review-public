@@ -1,6 +1,6 @@
 ---
 name: pyhealth
-description: Build clinical/healthcare deep-learning pipelines with PyHealth — loading EHR/signal/imaging datasets (MIMIC-III/IV, eICU, OMOP, SleepEDF, ChestXray14, EHRShot), defining tasks (mortality, readmission, length-of-stay, drug recommendation, sleep staging, ICD coding, EEG events), instantiating models (Transformer, RETAIN, GAMENet, SafeDrug, MICRON, StageNet, AdaCare, CNN/RNN/MLP), training with the PyHealth Trainer, computing clinical metrics, and using medical code utilities (ICD/ATC/NDC/RxNorm lookup and cross-mapping). Use this skill whenever the user mentions PyHealth, MIMIC, eICU, OMOP, EHR modeling, clinical prediction, drug recommendation, sleep staging, medical code mapping, ICD/ATC codes, or any healthcare ML pipeline that fits the dataset → task → model → trainer → metrics pattern, even if "PyHealth" isn't named explicitly.
+description: Build clinical/healthcare deep-learning pipelines with PyHealth following its Dataset → Task → Model → Trainer → Metrics pattern across EHR, physiological signal, and medical imaging data. Use this skill whenever the user mentions PyHealth, MIMIC, eICU, OMOP, EHR modeling, clinical prediction, drug recommendation, sleep staging, medical code mapping, ICD/ATC codes, or any healthcare ML pipeline that fits this pattern, even if "PyHealth" isn't named explicitly.
 metadata: {"version": "1.0", "skill-author": "K-Dense Inc."}
 ---
 
@@ -9,6 +9,13 @@ metadata: {"version": "1.0", "skill-author": "K-Dense Inc."}
 PyHealth (https://pyhealth.dev/) is a Python toolkit for clinical deep learning. It provides a unified, modular pipeline across electronic health records (EHR), physiological signals, and medical imaging.
 
 The library is built around a **5-stage pipeline** — `Dataset → Task → Model → Trainer → Metrics` — where each stage is replaceable and the interfaces between stages are stable. Code that follows this pipeline shape composes well; code that bypasses it usually fights the library.
+
+Built-in components span the pipeline:
+
+- **Datasets:** MIMIC-III/IV, eICU, OMOP, SleepEDF, ChestXray14, EHRShot (and more — see `references/datasets.md`).
+- **Tasks:** mortality, readmission, length-of-stay, drug recommendation, sleep staging, ICD coding, EEG events (see `references/tasks.md`).
+- **Models:** Transformer, RETAIN, GAMENet, SafeDrug, MICRON, StageNet, AdaCare, CNN/RNN/MLP (see `references/models.md`).
+- **Medical code utilities:** ICD/ATC/NDC/RxNorm lookup and cross-mapping (see `references/medcode.md`).
 
 ## When to use this skill
 

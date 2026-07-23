@@ -15,19 +15,22 @@ Use the `idc-index` Python package to query and download public cancer imaging d
 
 **Primary tool:** `idc-index` ([GitHub](https://github.com/imagingdatacommons/idc-index))
 
-**CRITICAL - Check package version and upgrade if needed (run this FIRST):**
+**CRITICAL - Check package version (run this FIRST):**
+
+This only detects the version and, if outdated, prints an upgrade command for you to run
+manually. It never installs anything automatically.
 
 ```python
 import idc_index
+from packaging.version import parse as parse_version
 
 REQUIRED_VERSION = "0.11.14"  # Must match metadata.idc-index in this file
 installed = idc_index.__version__
 
-if installed < REQUIRED_VERSION:
-    print(f"Upgrading idc-index from {installed} to {REQUIRED_VERSION}...")
-    import subprocess
-    subprocess.run(["pip3", "install", "--upgrade", "--break-system-packages", "idc-index"], check=True)
-    print("Upgrade complete. Restart Python to use new version.")
+if parse_version(installed) < parse_version(REQUIRED_VERSION):
+    print(f"idc-index {installed} is older than the recommended {REQUIRED_VERSION}.")
+    print("To upgrade, run this yourself in your environment:")
+    print("    pip install --upgrade idc-index")
 else:
     print(f"idc-index {installed} meets requirement ({REQUIRED_VERSION})")
 ```
