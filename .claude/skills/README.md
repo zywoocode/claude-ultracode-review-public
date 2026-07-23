@@ -16,7 +16,15 @@
 - **精简超长描述 / 收窄误触发**：`experimental-design`、`pathway-enrichment`、`arbor`、`statistical-power`、`bulk-rnaseq`、`pyhealth`、`tamarind`、`paper-lookup`、`markdown-mermaid-writing`、`get-available-resources`、`exa-search`、`optimize-for-gpu` 等的描述已收紧。
 - **修坏引用**：`clinical-decision-support`（删不存在的脚本引用）、`literature-review`（未安装的 sibling 改为 `database-lookup`）；`scientific-writing` 的「每篇必须≥20 图」硬配额改为建议。
 
-结果：150 → 144 个，描述常驻开销约 16.5k → 14.5k token/会话。**待定的更大精简**（合并 11 个文献检索/9 个绘图重叠、砍无账号的付费平台集成、领域 skill 改按需加载）需用户确认后再做。
+## 2026-07 审计清理（第二批：删无账号集成 + 合并重叠）
+
+- **删 10 个付费/机构平台集成**（用户确认无账号）：rowan、ginkgo-cloud-lab、benchling-integration、dnanexus-integration、latchbio-integration、labarchive-integration、omero-integration、protocolsio-integration、adaptyv、pacsomatic。
+- **合并重叠**：`geomaster` 并入 `geopandas`（核心重复）后删除；文献检索删掉失效的 `bgpt-paper-search`（需 BGPT MCP）、`paperzilla`（需 pz CLI + 账号）。
+- **保留说明**：`parallel-web` 被 3 个 skill 引用，删除会产生坏引用，故保留；`citation-management`/`database-lookup`/`scholar-evaluation`/`pyzotero` 各有独立用途（BibTeX 管理 / 通用库查询 / 学术打分 / Zotero），非纯检索重复，保留。
+
+结果：150 → 131 个，描述常驻开销约 16.5k → 13.2k token/会话（累计省约 3.4k）。
+
+**仍待定**：领域专用 skill（基因组学/化学/量子/天文等）改「按需加载」分层——需要把它们移到按项目启用的目录，收益最大但改动结构，等用户决定。
 
 ## 分类速览（K-Dense）
 
